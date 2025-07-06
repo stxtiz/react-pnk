@@ -9,9 +9,9 @@ const Header = () => {
         <div className="titulo">PNK INMOBILIARIA</div>
       </div>
       <nav className="header-derecha">
-        <link to="/" className="header-botones">
+        <Link to="/" className="header-botones">
           Inicio
-        </link>
+        </Link>
         <a href="#" className="header-botones">
           Registro Propietario
         </a>
