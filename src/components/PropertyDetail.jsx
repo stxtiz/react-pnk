@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getPropertyDetail, getPropertyImages } from "../services/api";
 import { Carousel } from "react-bootstrap";
+import IMAGEN_API from "../utils/obtenerFotos";
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -239,10 +240,10 @@ const PropertyDetail = () => {
               <Carousel.Item key={index}>
                 <img
                   className="d-block w-100"
-                  src={`/propiedades/${image.foto}`}
+                  src={`${IMAGEN_API}${image.foto}`}
                   alt={`Imagen ${index + 1} de ${property.titulopropiedad}`}
                   onError={(e) => {
-                    e.target.src = "/propiedades/defecto.jpg";
+                    e.target.src = `${IMAGEN_API}defecto.jpg`;
                   }}
                 />
               </Carousel.Item>
