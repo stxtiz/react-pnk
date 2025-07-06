@@ -1,5 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import IMAGEN_API from "../utils/obtenerFotos";
 
 const PropertyCard = ({ property }) => {
   // Formatear precios
@@ -14,9 +14,9 @@ const PropertyCard = ({ property }) => {
   // Manejar imagen por defecto
   const getImageSrc = () => {
     if (property.foto && property.foto !== "defecto.jpg") {
-      return `/propiedades/${property.foto}`;
+      return `${IMAGEN_API}${property.foto}`;
     }
-    return "/propiedades/defecto.jpg";
+    return `${IMAGEN_API}defecto.jpg`;
   };
 
   return (
@@ -25,7 +25,7 @@ const PropertyCard = ({ property }) => {
         src={getImageSrc()}
         alt={property.titulo}
         onError={(e) => {
-          e.target.src = "/propiedades/defecto.jpg";
+          e.target.src = `${IMAGEN_API}defecto.jpg`;
         }}
       />
       <div className="info-propiedad">
